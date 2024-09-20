@@ -2,7 +2,6 @@ return {
   -- List your plugins here 
   
   -- { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate', 
-  ,
 
   {
     "nvim-neo-tree/neo-tree.nvim",
