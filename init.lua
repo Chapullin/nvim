@@ -29,4 +29,8 @@ vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 vim.keymap.set('n', '<Leader>fg', builtin.live_grep, {})
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>n', ':Neotree filesystem reveal left<CR>', {})
+vim.keymap.set('i', '<C-k>','<C-o>k')
+vim.keymap.set('i', '<C-j>','<C-o>j')
+vim.keymap.set('i', '<C-h>','<C-o>h')
+vim.keymap.set('i', '<C-l>','<C-o>l')
 
