@@ -15,6 +15,8 @@ return {
           null_ls.builtins.formatting.prettier,
           null_ls.builtins.completion.spell,
 
+          -- require("none-ls.diagnostics.eslint"),
+          require("none-ls.diagnostics.eslint_d"),
           -- Use ESLint from none-ls-extras (make sure it is installed)
           -- require("none-ls.extras.diagnostics.eslint_d"), -- Correctly reference eslint_d
         },
