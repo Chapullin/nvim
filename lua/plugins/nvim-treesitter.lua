@@ -34,6 +34,12 @@ return {
         additional_vim_regex_highlighting = false,
       },
       indent = { enable = true },
+      -- Add folding configuration
+      fold = {
+        enable = true,
+        foldmethod = 'expr',
+        foldexpr = 'nvim_treesitter#foldexpr()',
+      },
     }
   end,
 }
