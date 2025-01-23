@@ -18,6 +18,9 @@ vim.opt.shiftwidth = 2
 --set shiftwidth=2
 vim.g.mapleader = " "
 
+-- set autosave
+vim.g.autosave_enabled = true
+
 -- init.lua
 
 -- Load lazy.nvim
@@ -29,6 +32,8 @@ local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 vim.keymap.set('n', '<Leader>fg', builtin.live_grep, {})
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fl', ':Telescope oldfiles<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-e>', ':Telescope oldfiles<CR>', { noremap = true })
 
 -- Neotree
 vim.keymap.set('n', '<Leader>nn', ':Neotree filesystem toggle<CR>', {})
