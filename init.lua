@@ -30,7 +30,7 @@ require("lazy").setup(require("plugins"))
 -- Telescope
 local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-vim.keymap.set('n', '<Leader>fg', builtin.live_grep, {})
+-- vim.keymap.set('n', '<Leader>fg', builtin.live_grep, {})
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fl', ':Telescope oldfiles<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-e>', ':Telescope oldfiles<CR>', { noremap = true })
@@ -38,8 +38,22 @@ vim.api.nvim_set_keymap('n', '<C-e>', ':Telescope oldfiles<CR>', { noremap = tru
 -- Neotree
 vim.keymap.set('n', '<Leader>nn', ':Neotree filesystem toggle<CR>', {})
 vim.keymap.set('n', '<Leader>nr', ':Neotree filesystem reveal left<CR>', {})
-vim.keymap.set('i', '<C-k>','<C-o>k')
-vim.keymap.set('i', '<C-j>','<C-o>j')
-vim.keymap.set('i', '<C-h>','<C-o>h')
-vim.keymap.set('i', '<C-l>','<C-o>l')
-require('plugins.keymaps').setup()
+
+vim.keymap.set("i", "jk", "<ESC>")
+vim.keymap.set("n", "<leader>nh", ":nohl<CR>")
+vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+vim.keymap.set("v", "p", '"_dP') -- paste over currently selected text without yanking it
+
+-- Tab to switch buffers in Normal mode
+vim.keymap.set("n", "<Tab>", ":bnext<CR>")
+vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
+
+-- Move selected line / block of text in visual mode
+vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
+vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
+
+
+-- Easier file save
+-- vim.keymap("n", "<Leader>w", "<cd>:w<CR>")
+vim.keymap.set('n', '<C-s>', '<cmd>silent w<CR>')
+vim.keymap.set('i', '<C-s>', '<ESC>:silent w<CR>')
