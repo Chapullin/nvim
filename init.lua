@@ -18,6 +18,9 @@ vim.opt.shiftwidth = 2
 --set shiftwidth=2
 vim.g.mapleader = " "
 
+-- wrap
+vim.opt.wrap = true
+
 -- set autosave
 vim.g.autosave_enabled = true
 
@@ -57,3 +60,21 @@ vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
 -- vim.keymap("n", "<Leader>w", "<cd>:w<CR>")
 vim.keymap.set('n', '<C-s>', '<cmd>silent w<CR>')
 vim.keymap.set('i', '<C-s>', '<ESC>:silent w<CR>')
+
+
+-- auto save mode
+local api = vim.api
+
+api.nvim_create_augroup('autosave', { clear = true })
+api.nvim_create_autocmd('InsertLeave', {
+  group = 'autosave',
+  pattern = '*',
+  command = 'silent! w'
+})
+
+api.nvim_create_autocmd('TextChanged', {
+  group = 'autosave',
+  pattern = '*',
+  command = 'silent! w'
+})
+
