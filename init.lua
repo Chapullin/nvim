@@ -33,10 +33,19 @@ require("lazy").setup(require("plugins"))
 -- Telescope
 local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
--- vim.keymap.set('n', '<Leader>fg', builtin.live_grep, {})
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fl', ':Telescope oldfiles<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-e>', ':Telescope oldfiles<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>e', ':Telescope oldfiles<CR><ESC>', { noremap = true })
+vim.keymap.set("n", "<leader>fd", ":lua require('telescope').extensions.live_grep_args.live_grep_args")
+
+-- Neotree
+vim.keymap.set('n', '<Leader>nn', ':Neotree filesystem toggle<CR>', {})
+vim.keymap.set('n', '<Leader>nr', ':Neotree filesystem reveal left<CR>', {})
+
+vim.keymap.set("i", "jk", "<ESC>")
+vim.keymap.set("n", "<leader>nh", ":nohl<CR>")
+vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 
 -- Neotree
 vim.keymap.set('n', '<Leader>nn', ':Neotree filesystem toggle<CR>', {})
