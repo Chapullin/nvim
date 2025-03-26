@@ -70,6 +70,10 @@ vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
 vim.keymap.set('n', '<C-s>', '<cmd>silent w<CR>')
 vim.keymap.set('i', '<C-s>', '<ESC>:silent w<CR>')
 
+-- Option+Backspace to delete one word backward in insert mode
+vim.keymap.set('i', '<A-BS>', '<C-w>', { noremap = true, silent = true })
+-- Cmd+Backspace to delete the entire line in insert 
+vim.keymap.set("i", "<D-BS>", "<Esc>^D$i", { noremap = true, silent = true })
 
 -- auto save mode
 local api = vim.api
