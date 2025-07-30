@@ -1,4 +1,4 @@
-local IS_DEV = false
+--[[ local IS_DEV = false
  
 local prompts = {
   -- Code related prompts
@@ -253,3 +253,4 @@ return {
     },
   },
 }
+]]--
